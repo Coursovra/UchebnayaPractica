@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net5.0-windows</TargetFramework>
+        <RootNamespace>MPT_UP_02._01_P50_2_18_26</RootNamespace>
+        <UseWindowsForms>true</UseWindowsForms>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="AdminBD.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="EditContractor.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="AddContractor.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="AdminTT.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="AddProduct.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Storekeeper.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Seller.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="AddSeller.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="SectionManager.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Bookkeeper.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="AddCustomer.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+    </ItemGroup>
+
+</Project>
