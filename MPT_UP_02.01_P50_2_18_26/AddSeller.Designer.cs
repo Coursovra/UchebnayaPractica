@@ -244,9 +244,10 @@ namespace MPT_UP_02._01_P50_2_18_26
             // 
             // labelStore
             // 
-            this.labelStore.Location = new System.Drawing.Point(627, 54);
+            this.labelStore.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
+            this.labelStore.Location = new System.Drawing.Point(504, 54);
             this.labelStore.Name = "labelStore";
-            this.labelStore.Size = new System.Drawing.Size(172, 63);
+            this.labelStore.Size = new System.Drawing.Size(284, 123);
             this.labelStore.TabIndex = 87;
             this.labelStore.Text = "label10";
             // 

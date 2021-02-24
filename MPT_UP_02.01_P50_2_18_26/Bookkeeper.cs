@@ -56,7 +56,7 @@ namespace MPT_UP_02._01_P50_2_18_26
 
         private void UpdateBudget()
         {
-            labelBudget.Text = Budget.ToString();
+            labelBudget.Text = "Budget: " + Budget;
             SqlManager.ChangeData("Budget", "value", Budget.ToString(), "id", "0");
         }
 

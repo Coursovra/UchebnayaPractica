@@ -23,10 +23,10 @@ namespace MPT_UP_02._01_P50_2_18_26
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(richTextBox1.Text, @"^[a-zA-ZА-Яа-я.]+$") && Regex.IsMatch(richTextBox2.Text, @"^[a-zA-ZА-Яа-я]+$"))
+            if (Regex.IsMatch(richTextBox1.Text, @"^[a-zA-ZА-Яа-я.0-9]+$") && Regex.IsMatch(richTextBox2.Text, @"^[a-zA-ZА-Яа-я]+$"))
             {
                 SqlManager.ExecuteCommand(
-                    $"update [Postavchik] set Imy_postavchika ='{richTextBox1.Text}' where Kod_postavchika='{_supplierId}'");
+                    $"update [Postavchik] set Imy_postavchika = N'{richTextBox1.Text}', Gorod_postavchika = N'{richTextBox2.Text}' where Kod_postavchika='{_supplierId}'");
             }
         }
     }

@@ -40,6 +40,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -68,9 +69,9 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.buttonAdd.BackColor = System.Drawing.Color.White;
             this.buttonAdd.Location = new System.Drawing.Point(31, 56);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.Size = new System.Drawing.Size(75, 34);
             this.buttonAdd.TabIndex = 3;
-            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.Text = "Добавить поставщика";
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
@@ -79,21 +80,22 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.buttonChange.BackColor = System.Drawing.Color.White;
             this.buttonChange.Location = new System.Drawing.Point(159, 56);
             this.buttonChange.Name = "buttonChange";
-            this.buttonChange.Size = new System.Drawing.Size(75, 23);
+            this.buttonChange.Size = new System.Drawing.Size(75, 34);
             this.buttonChange.TabIndex = 4;
-            this.buttonChange.Text = "Изменить";
+            this.buttonChange.Text = "Изменить поставщика";
             this.buttonChange.UseVisualStyleBackColor = false;
             this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
             // 
             // buttonDelete
             // 
             this.buttonDelete.BackColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(270, 56);
+            this.buttonDelete.Location = new System.Drawing.Point(270, 76);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelete.Size = new System.Drawing.Size(94, 23);
             this.buttonDelete.TabIndex = 5;
             this.buttonDelete.Text = "Удалить";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Visible = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonExit
@@ -119,6 +121,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {"Поставщик", "Товар", "Секции торговой точки", "Чек", "Должности", "Покупатели", "Склад", "Сотрудник", "Торговая точка", "Товар"});
             this.comboBox1.Location = new System.Drawing.Point(123, 105);
@@ -133,11 +136,20 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.dataGridView1.Location = new System.Drawing.Point(31, 157);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(728, 252);
             this.dataGridView1.TabIndex = 9;
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Location = new System.Drawing.Point(270, 105);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(94, 34);
+            this.buttonUpdate.TabIndex = 10;
+            this.buttonUpdate.Text = "Обновить базу данных";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // AdminBD
             // 
@@ -145,6 +157,8 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (132)))), ((int) (((byte) (192)))), ((int) (((byte) (242)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
+            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
@@ -158,10 +172,13 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.Name = "AdminBD";
             this.ShowIcon = false;
             this.Text = "Админ - Главная страница";
+            this.Activated += new System.EventHandler(this.AdminBD_Activated);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button buttonUpdate;
 
         private System.Windows.Forms.DataGridView dataGridView1;
 

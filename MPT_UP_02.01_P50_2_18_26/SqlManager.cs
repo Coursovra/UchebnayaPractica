@@ -16,13 +16,13 @@ namespace MPT_UP_02._01_P50_2_18_26
         private static SqlDataReader _dataReader;
         private static SqlDataAdapter _dataAdapter;
 
-
-        private static void NewConnection()
+        public static SqlConnection NewConnection()
         {
-            if (_isConnected) return;
+            if (_isConnected) return SqlConnect;
             SqlConnect.Open();
             _command = new SqlCommand {Connection = SqlConnect};
             _isConnected = true;
+            return SqlConnect;
         }
 
         public static void LoadToDGV(DataGridView dataGridView, string command)
@@ -85,7 +85,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             foreach (var value in dataStrings)
             {
    
-                temp.Add("'" + value + "'");
+                temp.Add("N'" + value + "'");
                 
             }
             data = String.Join(", ", temp);

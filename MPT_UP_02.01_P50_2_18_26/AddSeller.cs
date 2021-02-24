@@ -29,7 +29,7 @@ namespace MPT_UP_02._01_P50_2_18_26
 
                 if (_myStoreId == storeInfo[i + 2])
                 {
-                    labelStore.Text = storeInfo[i];
+                    labelStore.Text = storeInfo[i] + " - " + storeInfo[i+1];
                 }
             }
         }
@@ -43,12 +43,12 @@ namespace MPT_UP_02._01_P50_2_18_26
         {
             if (Regex.IsMatch(richTextBoxName.Text, "^[A-Za-zА-Яа-я]+$")
                 && Regex.IsMatch(richTextBoxSurname.Text, "^[A-Za-zА-Яа-я]+$")
-                && (Regex.IsMatch(richTextBoxSecondName.Text, "^[A-Za-zА-Яа-я]+$") || richTextBoxSecondName.Text == null) //todo:
+                && Regex.IsMatch(richTextBoxSecondName.Text, "^[A-Za-zА-Яа-я]+$")
                 && Regex.IsMatch(richTextBoxPhoneNumber.Text, "^[0-9]+$")
                 && dateTimePicker1.Text != null
                 && Regex.IsMatch(richTextBoxLogin.Text, "^[A-Za-zА-Яа-я_-]+$")
                 && richTextBoxLogin.Text.Length > 1
-                && Regex.IsMatch(richTextBoxPassword.Text, "^[A-Za-zА-Яа-я!#?$]+$")
+                && Regex.IsMatch(richTextBoxPassword.Text, "^[A-Za-zА-Яа-я!#?$0-9]+$")
                 && richTextBoxPassword.Text.Length > 1
                 && comboBoxStore.SelectedIndex >= 0)
             {

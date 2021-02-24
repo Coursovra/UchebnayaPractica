@@ -123,6 +123,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (132)))), ((int) (((byte) (192)))), ((int) (((byte) (242)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonEnter);

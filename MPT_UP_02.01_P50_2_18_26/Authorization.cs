@@ -8,9 +8,6 @@ namespace MPT_UP_02._01_P50_2_18_26
         public Form1()
         {
             InitializeComponent();
-            // Bookkeeper newForm = new Bookkeeper();
-            // newForm.Show();
-            //Hide();
         }
 
         private void buttonEnter_Click(object sender, EventArgs e)
@@ -45,7 +42,7 @@ namespace MPT_UP_02._01_P50_2_18_26
                 }
                 case "Кладовщик":
                 {
-                    Storekeeper newForm= new Storekeeper();
+                    Storekeeper newForm = new Storekeeper();
                     newForm.Show();
                     Hide();
                     break;
@@ -65,7 +62,7 @@ namespace MPT_UP_02._01_P50_2_18_26
                 }
                 case "Менеджер секций":
                 {
-                    SectionManager newForm= new SectionManager();
+                    SectionManager newForm = new SectionManager();
                     newForm.Show();
                     Hide();
                     break;

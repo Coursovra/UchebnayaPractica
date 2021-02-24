@@ -34,6 +34,13 @@ namespace MPT_UP_02._01_P50_2_18_26
                 _customerId.Add(id);
             }
 
+            UpdateCustomersComboBox();
+            UpdateProductsComboBox();
+        }
+
+        private void UpdateCustomersComboBox()
+        {
+            comboBoxCustomer.Items.Clear();
             var queryResult = SqlManager.ExecuteCommand(
                 "select Concat(Surname, ' ', SUBSTRING([Name], 1,1), '.', SUBSTRING(SecondName, 1,1), '.'), BirthDate, PhoneNumber	from Customer");
             for (int i = 0; i < queryResult.Count; i += 3)
@@ -41,9 +48,6 @@ namespace MPT_UP_02._01_P50_2_18_26
                 comboBoxCustomer.Items.Add(queryResult[i] + " " + Convert.ToDateTime(queryResult[i + 1]).ToString("d") + " " +
                                            queryResult[i + 2]);
             }
-
-
-            UpdateProductsComboBox();
         }
 
         private void UpdateProductsComboBox()
@@ -76,15 +80,13 @@ namespace MPT_UP_02._01_P50_2_18_26
         private void buttonAddSeller_Click(object sender, EventArgs e)
         {
             AddSeller newForm = new AddSeller(_mySectionId);
-            newForm.Show();
-            Hide();
+            newForm.ShowDialog();
         }
 
         private void buttonAddCustomer_Click(object sender, EventArgs e)
         {
             AddCustomer newForm = new AddCustomer();
-            newForm.Show();
-            Hide();
+            newForm.ShowDialog();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -189,6 +191,11 @@ namespace MPT_UP_02._01_P50_2_18_26
             richTextBoxAmount.Text = "";
             _isCreated = false;
             _checkId = null;
+        }
+
+        private void Seller_Load(object sender, EventArgs e)
+        {
+            UpdateCustomersComboBox();
         }
     }
 

@@ -34,8 +34,7 @@ namespace MPT_UP_02._01_P50_2_18_26
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             AddProduct newForm = new AddProduct();
-            newForm.Show();
-            Hide();
+            newForm.ShowDialog();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

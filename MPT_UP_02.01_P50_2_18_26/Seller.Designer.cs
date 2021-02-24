@@ -198,6 +198,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (132)))), ((int) (((byte) (193)))), ((int) (((byte) (242)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.labelToPay);
             this.Controls.Add(this.buttonAddCustomer);
             this.Controls.Add(this.dataGridView1);
@@ -217,6 +218,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.Name = "Seller";
             this.ShowIcon = false;
             this.Text = "Продавец";
+            this.Load += new System.EventHandler(this.Seller_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -136,7 +136,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.labelBudget.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.labelBudget.Location = new System.Drawing.Point(636, 54);
             this.labelBudget.Name = "labelBudget";
-            this.labelBudget.Size = new System.Drawing.Size(152, 63);
+            this.labelBudget.Size = new System.Drawing.Size(152, 111);
             this.labelBudget.TabIndex = 90;
             // 
             // Bookkeeper
@@ -145,6 +145,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (132)))), ((int) (((byte) (193)))), ((int) (((byte) (242)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.labelBudget);
             this.Controls.Add(this.comboBoxStore);
             this.Controls.Add(this.buttonPay2);

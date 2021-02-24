@@ -119,6 +119,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (132)))), ((int) (((byte) (193)))), ((int) (((byte) (242)))));
             this.ClientSize = new System.Drawing.Size(792, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);

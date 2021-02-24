@@ -92,19 +92,26 @@ namespace MPT_UP_02._01_P50_2_18_26
                     SqlManager.ExecuteCommand(
                         $"select Id_Sklad_Tovar from Sklad_Tovar where Id_Sklad = {_storageId[comboBoxStorage.SelectedIndex]} " +
                         $"and Id_Tovar = {_productId[comboBoxProduct.SelectedIndex]}")[0]);
+                
+                UpdateProductComboBox();
             }
         }
 
         private void comboBoxStorage_SelectedIndexChanged(object sender, EventArgs e)
         {
+            UpdateProductComboBox();
+        }
+
+        private void UpdateProductComboBox()
+        {
             comboBoxProduct.Items.Clear();
             _productId.Clear();
-            foreach (var productName in SqlManager.ExecuteCommand(
-                "select Nazvanie_producta from Sklad_Tovar inner join Tovar " +
-                $"on Sklad_Tovar.Id_Tovar = Tovar.Kod_tovara where Id_Sklad = {_storageId[comboBoxStorage.SelectedIndex]}")
-            )
+            var productInfo = SqlManager.ExecuteCommand(
+                "select Nazvanie_producta, Kolichestvo_Tovara from Sklad_Tovar inner join Tovar " +
+                $"on Sklad_Tovar.Id_Tovar = Tovar.Kod_tovara where Id_Sklad = {_storageId[comboBoxStorage.SelectedIndex]}");
+            for (int i = 0; i < productInfo.Count; i += 2)
             {
-                comboBoxProduct.Items.Add(productName);
+                comboBoxProduct.Items.Add(productInfo[i] + " - " + productInfo[i + 1]);
             }
 
             foreach (var id in SqlManager.ExecuteCommand("select Id_tovar from Sklad_Tovar inner join Tovar " +

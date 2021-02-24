@@ -62,11 +62,11 @@ namespace MPT_UP_02._01_P50_2_18_26
 
                 var primaryKeyQuery =
                     SqlManager.ExecuteCommand(
-                        $"select Id_Ceksiya_Tovar from Ceksiya_Tovar where Id_Seksiya = {_storeId[comboBoxStore.SelectedIndex]} " +
+                        $"select Id_Ceksiya_Tovar, Tovar_Kolichestvo from Ceksiya_Tovar where Id_Seksiya = {_sectionId[comboBoxSection.SelectedIndex]} " +
                         $"and Id_Tovar = {_storeproducts[comboBoxProduct.SelectedIndex].Id}");
 
 
-                if (primaryKeyQuery.Count == 0) //add to section
+                if (primaryKeyQuery.Count == 0) //insert new
                 {
                     SqlManager.InsertData("Ceksiya_Tovar", new[] {"Id_Seksiya", "Id_Tovar", "Tovar_Kolichestvo"},
                         new[]
@@ -75,11 +75,12 @@ namespace MPT_UP_02._01_P50_2_18_26
                             _storeproducts[comboBoxProduct.SelectedIndex].Amount.ToString()
                         });
                 }
-                else //insert into section
+                else //add to section
                 {
+                    amount = Convert.ToInt32(primaryKeyQuery[1]) + Convert.ToInt32(richTextBoxAmount.Text);
                     primaryKey = primaryKeyQuery[0];
                     SqlManager.ChangeData("Ceksiya_Tovar", "Tovar_Kolichestvo",
-                        richTextBoxAmount.Text, "Id_Ceksiya_Tovar",
+                        amount.ToString(), "Id_Ceksiya_Tovar",
                         primaryKey);
                 }
 
