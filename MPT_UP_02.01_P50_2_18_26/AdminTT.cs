@@ -12,12 +12,18 @@ namespace MPT_UP_02._01_P50_2_18_26
         public AdminTT()
         {
             InitializeComponent();
-            _tableData = SqlManager.ExecuteCommand("select Surname, [Name], SecondName, BirthDate, PhoneNumber from Customer");
-            if (_tableData.Count == 0) { return; }
+            _tableData =
+                SqlManager.ExecuteCommand("select Surname, [Name], SecondName, BirthDate, PhoneNumber from Customer");
+            if (_tableData.Count == 0)
+            {
+                return;
+            }
+
             for (int i = 0; i < _tableData.Count; i += 5)
             {
                 string date = Convert.ToDateTime(_tableData[i + 3]).ToString("d");
-                var customerData = _tableData[i] + " " + _tableData[i + 1][0] + "." + _tableData[i + 2][0] + ". " + date +
+                var customerData = _tableData[i] + " " + _tableData[i + 1][0] + "." + _tableData[i + 2][0] + ". " +
+                                   date +
                                    " " +
                                    _tableData[i + 4];
                 comboBox1.Items.Add(customerData);
@@ -39,7 +45,11 @@ namespace MPT_UP_02._01_P50_2_18_26
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedIndex == -1) { return;}
+            if (comboBox1.SelectedIndex == -1)
+            {
+                return;
+            }
+
             SqlManager.LoadToDGV(dataGridView1,
                 "select Tovar.Nazvanie_producta as \"Название продукта\", Concat(Customer.Surname, ' ', " +
                 "SUBSTRING(Customer.Name, 1,1), '.', SUBSTRING(Customer.SecondName, 1,1), '.') as \"ФИО Покупателя\", " +

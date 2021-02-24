@@ -6,7 +6,6 @@ namespace MPT_UP_02._01_P50_2_18_26
 {
     public partial class AddContractor : Form
     {
-        
         public AddContractor()
         {
             InitializeComponent();

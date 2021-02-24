@@ -79,6 +79,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             {
                 SqlManager.DeleteData("Ceksiya_torgovoy_tochki_Sotrudnik", "Id_Sotrudnik", selectedPrimaryKey);
             }
+
             SqlManager.DeleteData(_comboBoxSelectedItem, primaryKeyColumnName, selectedPrimaryKey);
             SqlManager.LoadToDGV(dataGridView1, $"select * from {_comboBoxSelectedItem}");
         }
@@ -92,7 +93,11 @@ namespace MPT_UP_02._01_P50_2_18_26
         private void buttonChange_Click(object sender, EventArgs e)
         {
             _comboBoxValue.TryGetValue(comboBox1.SelectedItem.ToString(), out string _comboBoxSelectedItem);
-            if(_comboBoxSelectedItem != "Postavchik") { return; }
+            if (_comboBoxSelectedItem != "Postavchik")
+            {
+                return;
+            }
+
             EditContractor newForm = new EditContractor(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             newForm.ShowDialog();
         }

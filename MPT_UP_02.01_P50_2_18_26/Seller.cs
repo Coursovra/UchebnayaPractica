@@ -18,7 +18,7 @@ namespace MPT_UP_02._01_P50_2_18_26
         private List<CheckItems> _bdItemsList;
         private int _toPay = 0;
 
-        public Seller(string myId, string  sectionId)
+        public Seller(string myId, string sectionId)
         {
             InitializeComponent();
             _myId = myId;
@@ -45,7 +45,8 @@ namespace MPT_UP_02._01_P50_2_18_26
                 "select Concat(Surname, ' ', SUBSTRING([Name], 1,1), '.', SUBSTRING(SecondName, 1,1), '.'), BirthDate, PhoneNumber	from Customer");
             for (int i = 0; i < queryResult.Count; i += 3)
             {
-                comboBoxCustomer.Items.Add(queryResult[i] + " " + Convert.ToDateTime(queryResult[i + 1]).ToString("d") + " " +
+                comboBoxCustomer.Items.Add(queryResult[i] + " " + Convert.ToDateTime(queryResult[i + 1]).ToString("d") +
+                                           " " +
                                            queryResult[i + 2]);
             }
         }
@@ -92,8 +93,11 @@ namespace MPT_UP_02._01_P50_2_18_26
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             if (!(comboBoxCustomer.SelectedIndex >= 0 && comboBoxProduct.SelectedIndex >= 0 &&
-                Regex.IsMatch(richTextBoxAmount.Text, "^[0-9]+$") && richTextBoxAmount.Text[0] != '0')) { return; }
-            
+                  Regex.IsMatch(richTextBoxAmount.Text, "^[0-9]+$") && richTextBoxAmount.Text[0] != '0'))
+            {
+                return;
+            }
+
             dataGridView1.Columns.Clear();
 
             var currentDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
@@ -108,6 +112,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             {
                 InsertIntoCheck();
             }
+
             UpdateProductsComboBox();
         }
 
@@ -132,10 +137,11 @@ namespace MPT_UP_02._01_P50_2_18_26
         {
             var item = new CheckItems()
             {
-                Amount = Convert.ToInt32(richTextBoxAmount.Text), Price = Convert.ToInt32(_productPrice[comboBoxProduct.SelectedIndex])
+                Amount = Convert.ToInt32(richTextBoxAmount.Text),
+                Price = Convert.ToInt32(_productPrice[comboBoxProduct.SelectedIndex])
             };
             _checkItemsList.Add(item);
-            
+
             if (_bdItemsList[comboBoxProduct.SelectedIndex].Amount - item.Amount >= 0)
             {
                 var primaryKey = SqlManager.ExecuteCommand(
@@ -166,7 +172,11 @@ namespace MPT_UP_02._01_P50_2_18_26
 
         private void buttonShowCheck_Click(object sender, EventArgs e)
         {
-            if(_checkId == null) { return; }
+            if (_checkId == null)
+            {
+                return;
+            }
+
             dataGridView1.Columns.Clear();
             _isCreated = false;
             SqlManager.LoadToDGV(dataGridView1,
@@ -177,7 +187,7 @@ namespace MPT_UP_02._01_P50_2_18_26
                 "inner join Sotrudnik on Sotrudnik.Kod_sotrudnika = chek.Kod_sotrudnika " +
                 "inner join Check_Product on Check_Product.IdCheck = Kod_cheka " +
                 $"inner join Tovar on Tovar.Kod_tovara = IdProduct where Kod_cheka = {_checkId}");
-            
+
             var budget = Convert.ToInt32(SqlManager.ExecuteCommand("select [value] from Budget")[0]);
             SqlManager.ChangeData("Budget", "value", (budget + _toPay).ToString(), "id", "0");
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;

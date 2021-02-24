@@ -11,6 +11,7 @@ namespace MPT_UP_02._01_P50_2_18_26
         private List<string> _storeId = new();
         private List<string> _storeAddress = new();
         private List<string> _storeName = new();
+
         public AddSeller(string myStoreId)
         {
             InitializeComponent();
@@ -20,16 +21,16 @@ namespace MPT_UP_02._01_P50_2_18_26
                 "from Ceksii_torgovoy_tochki inner join Torgovaya_tochka " +
                 "on Torgovaya_tochka.Kod_torgovoy_tochki = Id_TorgTochka");
 
-            for (int i = 0; i < storeInfo.Count; i+=3)
+            for (int i = 0; i < storeInfo.Count; i += 3)
             {
-                comboBoxStore.Items.Add(storeInfo[i] + " - " + storeInfo[i+1]);
-                _storeId.Add(storeInfo[i+2]);
-                _storeAddress.Add(storeInfo[i+1]);
+                comboBoxStore.Items.Add(storeInfo[i] + " - " + storeInfo[i + 1]);
+                _storeId.Add(storeInfo[i + 2]);
+                _storeAddress.Add(storeInfo[i + 1]);
                 _storeName.Add(storeInfo[i]);
 
                 if (_myStoreId == storeInfo[i + 2])
                 {
-                    labelStore.Text = storeInfo[i] + " - " + storeInfo[i+1];
+                    labelStore.Text = storeInfo[i] + " - " + storeInfo[i + 1];
                 }
             }
         }
@@ -92,7 +93,8 @@ namespace MPT_UP_02._01_P50_2_18_26
                         });
                 }
 
-                var myId = SqlManager.ExecuteCommand($"select Kod_sotrudnika from Sotrudnik where Login = '{richTextBoxLogin.Text}'")[0];
+                var myId = SqlManager.ExecuteCommand(
+                    $"select Kod_sotrudnika from Sotrudnik where Login = '{richTextBoxLogin.Text}'")[0];
 
                 SqlManager.InsertData("Ceksiya_torgovoy_tochki_Sotrudnik",
                     new[] {"Id_Ceksii_torgovoy_tochki", "Id_Sotrudnik"},

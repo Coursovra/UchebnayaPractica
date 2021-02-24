@@ -54,7 +54,7 @@ namespace MPT_UP_02._01_P50_2_18_26
                         [0];
                 SqlManager.ChangeData("TorgTochka_Tovar", "Tovar_Kolichestvo", //remove from store
                     _storeproducts[comboBoxProduct.SelectedIndex].Amount.ToString(), "Id_TorgTochka_Tovar", primaryKey);
-                
+
                 if (_storeproducts[comboBoxProduct.SelectedIndex].Amount == 0)
                 {
                     SqlManager.DeleteData("TorgTochka_Tovar", "Id_TorgTochka_Tovar", primaryKey);
@@ -88,7 +88,7 @@ namespace MPT_UP_02._01_P50_2_18_26
                 {
                     _storeproducts.RemoveAt(comboBoxProduct.SelectedIndex);
                 }
-                
+
                 UpdateProductComboBox();
             }
         }
@@ -119,7 +119,8 @@ namespace MPT_UP_02._01_P50_2_18_26
             for (int i = 0; i < productInfo.Count; i += 3)
             {
                 comboBoxProduct.Items.Add(productInfo[i] + " (" + productInfo[i + 1] + ")");
-                _storeproducts.Add(new StoreProduct() {Id = productInfo[i + 2], Amount = Convert.ToInt32(productInfo[i + 1])});
+                _storeproducts.Add(new StoreProduct()
+                    {Id = productInfo[i + 2], Amount = Convert.ToInt32(productInfo[i + 1])});
             }
         }
     }

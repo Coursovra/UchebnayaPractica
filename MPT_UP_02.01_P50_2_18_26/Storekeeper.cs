@@ -11,6 +11,7 @@ namespace MPT_UP_02._01_P50_2_18_26
         private int _toPay = 0;
         private int _budget = 0;
         private List<string> _storageId = new();
+
         public Storekeeper()
         {
             InitializeComponent();
@@ -70,9 +71,10 @@ namespace MPT_UP_02._01_P50_2_18_26
                 var primaryKey = SqlManager.ExecuteCommand(
                     $"select Id_Sklad_Tovar from Sklad_Tovar where Id_Sklad = {_storageId[comboBoxStorage.SelectedIndex]} " +
                     $"and Id_Tovar = {_product.ElementAt(comboBoxProduct.SelectedIndex).Key}")[0];
-                
+
                 var amount = Convert.ToInt32(queryResult[0]) + Convert.ToInt32(richTextBoxAmount.Text);
-                SqlManager.ChangeData("Sklad_Tovar", "Kolichestvo_Tovara", amount.ToString(), "Id_Sklad_Tovar", primaryKey);
+                SqlManager.ChangeData("Sklad_Tovar", "Kolichestvo_Tovara", amount.ToString(), "Id_Sklad_Tovar",
+                    primaryKey);
             }
             else
             {
@@ -87,7 +89,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             SqlManager.ChangeData("Budget", "Value", _budget.ToString(), "id", "0");
         }
 
-        private void richTextBoxAmount_TextChanged(object sender, EventArgs e)// amount entered
+        private void richTextBoxAmount_TextChanged(object sender, EventArgs e) // amount entered
         {
             _toPay = _product.ElementAt(comboBoxProduct.SelectedIndex).Value * Convert.ToInt32(richTextBoxAmount.Text);
             richTextBoxPaying.Text = _toPay.ToString();

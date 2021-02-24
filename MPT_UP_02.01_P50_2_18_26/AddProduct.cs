@@ -7,9 +7,9 @@ namespace MPT_UP_02._01_P50_2_18_26
 {
     public partial class AddProduct : Form
     {
-        private List<string> _storageId = new ();
-        private List<string> _storeId = new ();
-        private List<string> _productId = new ();
+        private List<string> _storageId = new();
+        private List<string> _storeId = new();
+        private List<string> _productId = new();
         private int _amountOfProductInStorage = 0;
 
         public AddProduct()
@@ -56,7 +56,7 @@ namespace MPT_UP_02._01_P50_2_18_26
                 _amountOfProductInStorage = Convert.ToInt32(SqlManager.ExecuteCommand(
                     $"select Kolichestvo_Tovara from Sklad_Tovar where Id_Sklad = {_storageId[comboBoxStorage.SelectedIndex]} " +
                     $"and Id_Tovar = {_productId[comboBoxProduct.SelectedIndex]}")[0]);
-                
+
                 if (Convert.ToInt32(richTextBoxAmount.Text) > _amountOfProductInStorage)
                 {
                     return;
@@ -81,18 +81,19 @@ namespace MPT_UP_02._01_P50_2_18_26
                     var amountOfProductInStore = Convert.ToInt32(amountOfProductInStoreResult[0]);
                     var primaryKey = SqlManager.ExecuteCommand(
                             "select Id_TorgTochka_Tovar from TorgTochka_Tovar " +
-                            $"where Id_TorgTochka = {_storeId[comboBoxStore.SelectedIndex]} and Id_Tovar = {_productId[comboBoxProduct.SelectedIndex]}")[0];
+                            $"where Id_TorgTochka = {_storeId[comboBoxStore.SelectedIndex]} and Id_Tovar = {_productId[comboBoxProduct.SelectedIndex]}")
+                        [0];
                     SqlManager.ChangeData("TorgTochka_Tovar", "Tovar_Kolichestvo",
                         (amountOfProductInStore + productAmount).ToString(), "Id_TorgTochka_Tovar", primaryKey);
                 }
-                
+
                 //remove from storage
                 SqlManager.ChangeData("Sklad_Tovar", "Kolichestvo_Tovara",
                     (_amountOfProductInStorage - productAmount).ToString(), "Id_Sklad_Tovar",
                     SqlManager.ExecuteCommand(
                         $"select Id_Sklad_Tovar from Sklad_Tovar where Id_Sklad = {_storageId[comboBoxStorage.SelectedIndex]} " +
                         $"and Id_Tovar = {_productId[comboBoxProduct.SelectedIndex]}")[0]);
-                
+
                 UpdateProductComboBox();
             }
         }
