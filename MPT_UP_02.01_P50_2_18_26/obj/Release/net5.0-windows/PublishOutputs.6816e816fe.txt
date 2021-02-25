@@ -1,0 +1,11 @@
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\MPT_UP_02.01_P50_2_18_26.exe
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\MPT_UP_02.01_P50_2_18_26.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\MPT_UP_02.01_P50_2_18_26.deps.json
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\MPT_UP_02.01_P50_2_18_26.runtimeconfig.json
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\MPT_UP_02.01_P50_2_18_26.pdb
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\System.Data.SqlClient.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\runtimes\win-arm64\native\sni.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\runtimes\win-x64\native\sni.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\runtimes\win-x86\native\sni.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
