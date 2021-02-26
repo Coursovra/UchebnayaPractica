@@ -1,0 +1,12 @@
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\MPT_UP_02.01_P50_2_18_26.pdb
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\clrcompression.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\clrjit.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\coreclr.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\mscordaccore.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\D3DCompiler_47_cor3.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\PenImc_cor3.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\PresentationNative_cor3.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\vcruntime140_cor3.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\wpfgfx_cor3.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\sni.dll
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\bin\Release\net5.0-windows\publish\MPT_UP_02.01_P50_2_18_26.exe

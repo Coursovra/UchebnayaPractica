@@ -9,7 +9,7 @@ namespace MPT_UP_02._01_P50_2_18_26
     public static class SqlManager
     {
         private static readonly SqlConnection SqlConnect = new(
-            @"Data Source=DESKTOP-258HVDR;Initial Catalog=MPT_UP_02.01_P50_2_18_26;Integrated Security=True");
+            @"Data Source=localhost;Initial Catalog=MPT_UP_02.01_P50_2_18_26;Integrated Security=True");
 
         private static SqlCommand _command;
         private static bool _isConnected;

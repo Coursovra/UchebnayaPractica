@@ -10,9 +10,9 @@ namespace MPT_UP_02._01_P50_2_18_26
         {
             InitializeComponent();
         }
-        
+
         /// <summary>
-        /// Обработчик нажатия кнопки "Назад" для перехода на предыдущую страницу 
+        /// Обработчик нажатия кнопки "Поплнить" для
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -22,7 +22,7 @@ namespace MPT_UP_02._01_P50_2_18_26
         }
 
         /// <summary>
-        /// Обработчик нажатия кнопки "Добавить" для добавления данных о новом покупателе в базу данных
+        /// Обработчик нажатия кнопки "Добавить" для добавления данных о покупателе в базу данных
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -47,7 +47,8 @@ namespace MPT_UP_02._01_P50_2_18_26
                     new[]
                     {
                         richTextBoxName.Text, richTextBoxSurname.Text, richTextBoxSecondName.Text,
-                        richTextBoxPhoneNumber.Text, Convert.ToDateTime(dateTimePicker1.Text).ToString("yyyy-MM-dd"), DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")
+                        richTextBoxPhoneNumber.Text, Convert.ToDateTime(dateTimePicker1.Text).ToString("yyyy-MM-dd"),
+                        DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")
                     });
             }
         }

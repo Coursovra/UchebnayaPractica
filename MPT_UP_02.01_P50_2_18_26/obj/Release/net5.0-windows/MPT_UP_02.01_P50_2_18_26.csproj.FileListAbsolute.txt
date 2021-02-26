@@ -33,3 +33,4 @@ D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\obj\Release\n
 D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\obj\Release\net5.0-windows\ref\MPT_UP_02.01_P50_2_18_26.dll
 D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\obj\Release\net5.0-windows\MPT_UP_02.01_P50_2_18_26.pdb
 D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\obj\Release\net5.0-windows\MPT_UP_02.01_P50_2_18_26.genruntimeconfig.cache
+D:\RiderProjects\MPT_UP_02.01_P50_2_18_26\MPT_UP_02.01_P50_2_18_26\obj\Release\net5.0-windows\MPT_UP_02.01_P50_2_18_26.csprojAssemblyReference.cache
