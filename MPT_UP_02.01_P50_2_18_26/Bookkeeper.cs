@@ -8,7 +8,6 @@ namespace MPT_UP_02._01_P50_2_18_26
     {
         private List<int> _toPayEmployee = new();
         private List<int> _toPayStore = new();
-
         private int Budget
         {
             get { return _budget; }
@@ -18,7 +17,6 @@ namespace MPT_UP_02._01_P50_2_18_26
                 UpdateBudget();
             }
         }
-
         private int _budget;
 
         public Bookkeeper()
@@ -48,6 +46,11 @@ namespace MPT_UP_02._01_P50_2_18_26
             }
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Выплатить зарплату" для снятия с бюджета суммы равной окладу выбранного сотрудника
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonPay1_Click(object sender, EventArgs e)
         {
             if (_toPayEmployee[comboBoxEmployees.SelectedIndex] > _budget)
@@ -58,12 +61,20 @@ namespace MPT_UP_02._01_P50_2_18_26
             Budget -= _toPayEmployee[comboBoxEmployees.SelectedIndex];
         }
 
+        /// <summary>
+        /// Обновление бюджета в базе данных и соответствующей записи на странице
+        /// </summary>
         private void UpdateBudget()
         {
             labelBudget.Text = "Budget: " + Budget;
             SqlManager.ChangeData("Budget", "value", Budget.ToString(), "id", "0");
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Выплатить организациям" для снятия с бюджета суммы равной сумме аренды и коммунальных услуг выбранной торговой точки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonPay2_Click(object sender, EventArgs e)
         {
             if (_toPayStore[comboBoxStore.SelectedIndex] > _budget)
@@ -74,6 +85,11 @@ namespace MPT_UP_02._01_P50_2_18_26
             Budget -= _toPayStore[comboBoxStore.SelectedIndex];
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Выйти" для выхода из программы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

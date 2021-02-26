@@ -37,6 +37,7 @@
             this.buttonEnter = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,6 +118,16 @@
             this.textBoxPassword.Size = new System.Drawing.Size(446, 20);
             this.textBoxPassword.TabIndex = 10;
             // 
+            // buttonExit
+            // 
+            this.buttonExit.Location = new System.Drawing.Point(724, 425);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(75, 23);
+            this.buttonExit.TabIndex = 11;
+            this.buttonExit.Text = "Выход";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,6 +135,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (132)))), ((int) (((byte) (192)))), ((int) (((byte) (242)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonEnter);
@@ -141,6 +153,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button buttonExit;
 
         private System.Windows.Forms.TextBox textBoxPassword;
 

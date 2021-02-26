@@ -32,17 +32,32 @@ namespace MPT_UP_02._01_P50_2_18_26
 
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Выйти" для выхода из программы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Пополнение товарами торговой точки" для перехода на соответствующую страницу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             AddProduct newForm = new AddProduct();
             newForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Обработчик выбора элемента из выпадающего списка с посетителями для загрузки данных о покупках из базы данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedIndex == -1)

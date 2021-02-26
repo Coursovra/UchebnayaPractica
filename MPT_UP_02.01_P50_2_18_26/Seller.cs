@@ -27,6 +27,9 @@ namespace MPT_UP_02._01_P50_2_18_26
             Setup();
         }
 
+        /// <summary>
+        /// Добавление айди покупателей в массив и загрузка данных в выпадающий список
+        /// </summary>
         private void Setup()
         {
             foreach (var id in SqlManager.ExecuteCommand("select Id_Customer from Customer"))
@@ -38,6 +41,9 @@ namespace MPT_UP_02._01_P50_2_18_26
             UpdateProductsComboBox();
         }
 
+        /// <summary>
+        /// Загрузка данных о покупателях в соответствующий выпадающий список
+        /// </summary>
         private void UpdateCustomersComboBox()
         {
             comboBoxCustomer.Items.Clear();
@@ -50,7 +56,10 @@ namespace MPT_UP_02._01_P50_2_18_26
                                            queryResult[i + 2]);
             }
         }
-
+        
+        /// <summary>
+        /// Загрузка данных о товарах в соответствующий выпадающий список
+        /// </summary>
         private void UpdateProductsComboBox()
         {
             comboBoxProduct.Items.Clear();
@@ -73,23 +82,43 @@ namespace MPT_UP_02._01_P50_2_18_26
             }
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Выйти" для выхода из программы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Добавить продавца" для перехода на соответствующую страницу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAddSeller_Click(object sender, EventArgs e)
         {
             AddSeller newForm = new AddSeller(_mySectionId);
             newForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Добавить посетителя" для перехода на соответствующую страницу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAddCustomer_Click(object sender, EventArgs e)
         {
             AddCustomer newForm = new AddCustomer();
             newForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Добавить в чек" для добавления выбранного товара в чек
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             if (!(comboBoxCustomer.SelectedIndex >= 0 && comboBoxProduct.SelectedIndex >= 0 &&
@@ -99,13 +128,12 @@ namespace MPT_UP_02._01_P50_2_18_26
             }
 
             dataGridView1.Columns.Clear();
-
-            var currentDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            
             if (!_isCreated)
             {
                 _toPay = 0;
                 labelToPay.Text = "";
-                CreateCheck(currentDate);
+                CreateCheck();
                 InsertIntoCheck();
             }
             else
@@ -115,9 +143,13 @@ namespace MPT_UP_02._01_P50_2_18_26
 
             UpdateProductsComboBox();
         }
-
-        private void CreateCheck(string currentDate)
+        
+        /// <summary>
+        /// Создание чека
+        /// </summary>
+        private void CreateCheck()
         {
+            var currentDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             _checkItemsList = new();
             SqlManager.InsertData("Chek", new[] {"Kod_pokupately", "Kod_sotrudnika", "Date"},
                 new[]
@@ -133,6 +165,11 @@ namespace MPT_UP_02._01_P50_2_18_26
             _isCreated = true;
         }
 
+        /// <summary>
+        /// Добавление товара в чек в базе данных,
+        /// обновление суммы для оплаты равной стоимости товара умноженной на его выбранное количество,
+        /// вычитание количества товара из текущей секции в базе данных
+        /// </summary>
         private void InsertIntoCheck()
         {
             var item = new CheckItems()
@@ -170,6 +207,11 @@ namespace MPT_UP_02._01_P50_2_18_26
             }
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Завершить создание чека" для отображения чека в таблице и добавление суммы в бюдежт в базе данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonShowCheck_Click(object sender, EventArgs e)
         {
             if (_checkId == null)
@@ -193,6 +235,11 @@ namespace MPT_UP_02._01_P50_2_18_26
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
+        /// <summary>
+        /// Обработчик выбора элемента из выпадающего списка с посетителями для сброса чека
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxCustomer_SelectedIndexChanged(object sender, EventArgs e)
         {
             dataGridView1.Columns.Clear();
@@ -203,12 +250,20 @@ namespace MPT_UP_02._01_P50_2_18_26
             _checkId = null;
         }
 
+        /// <summary>
+        /// Обработчик открытия страницы для обновления данных в выпадающем списке
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Seller_Load(object sender, EventArgs e)
         {
             UpdateCustomersComboBox();
         }
     }
 
+    /// <summary>
+    /// Класс для товаров в чеке
+    /// </summary>
     public class CheckItems
     {
         public int Amount;

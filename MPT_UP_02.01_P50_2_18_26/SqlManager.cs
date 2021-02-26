@@ -16,6 +16,10 @@ namespace MPT_UP_02._01_P50_2_18_26
         private static SqlDataReader _dataReader;
         private static SqlDataAdapter _dataAdapter;
 
+        /// <summary>
+        /// Создание нового подключения
+        /// </summary>
+        /// <returns>Строку подключения</returns>
         public static SqlConnection NewConnection()
         {
             if (_isConnected) return SqlConnect;
@@ -25,6 +29,11 @@ namespace MPT_UP_02._01_P50_2_18_26
             return SqlConnect;
         }
 
+        /// <summary>
+        /// Загрузка данных из бд в таблицу по запросу
+        /// </summary>
+        /// <param name="dataGridView">таблица</param>
+        /// <param name="command">запрос</param>
         public static void LoadToDGV(DataGridView dataGridView, string command)
         {
             NewConnection();
@@ -34,6 +43,11 @@ namespace MPT_UP_02._01_P50_2_18_26
             dataGridView.DataSource = dataSet.Tables[0];
         }
         
+        /// <summary>
+        /// Выполняет команду
+        /// </summary>
+        /// <param name="command">команда</param>
+        /// <returns>результат</returns>
         public static List<String> ExecuteCommand(string command)
         {
             NewConnection();
@@ -66,6 +80,12 @@ namespace MPT_UP_02._01_P50_2_18_26
             return result;
         }
         
+        /// <summary>
+        /// Создает запись в базе данных
+        /// </summary>
+        /// <param name="table">таблица</param>
+        /// <param name="fields">поля для заполнения</param>
+        /// <param name="dataStrings">данные для этих полей</param>
         public static void InsertData(string table, string[] fields, string[] dataStrings)
         {
             NewConnection();
@@ -98,7 +118,12 @@ namespace MPT_UP_02._01_P50_2_18_26
             _isConnected = false;
         }
         
-                
+        /// <summary>
+        /// Удаляет запись из базы данных
+        /// </summary>
+        /// <param name="tableName">наименование таблицы</param>
+        /// <param name="UniqueFieldName">уникальное поле, по которому будет проходить идентификация</param>
+        /// <param name="UniqueFieldData">данные этого поля</param>
         public static void DeleteData(string tableName, string UniqueFieldName, string UniqueFieldData)
         {
             NewConnection();
@@ -112,6 +137,14 @@ namespace MPT_UP_02._01_P50_2_18_26
             _isConnected = false;
         }
         
+        /// <summary>
+        /// Изменяет запись в базе данных
+        /// </summary>
+        /// <param name="tableName">наименование таблицы</param>
+        /// <param name="FieldName1">наименование поля для изменения</param>
+        /// <param name="FieldData1">данные этого поля</param>
+        /// <param name="PrimaryKeyField">уникальное поле, по которому будет проходить идентификация</param>
+        /// <param name="PrimaryKeyData">данные этого поля</param>
         public static void ChangeData(string tableName, string FieldName1, string FieldData1, string PrimaryKeyField, string PrimaryKeyData)
         {
             NewConnection();

@@ -19,6 +19,9 @@ namespace MPT_UP_02._01_P50_2_18_26
             ComboBoxSetup();
         }
 
+        /// <summary>
+        /// Загрузка данных в выпадающий список и добавление айди в список
+        /// </summary>
         private void ComboBoxSetup()
         {
             foreach (var address in SqlManager.ExecuteCommand("select Address from Sklad"))
@@ -42,11 +45,21 @@ namespace MPT_UP_02._01_P50_2_18_26
             }
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Назад" для перехода на предыдущую страницу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonBack_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Поплнить" для поплнения торговой точки товаром с выбранного склада в базе данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             if (comboBoxStorage.SelectedIndex >= 0 && comboBoxStore.SelectedIndex >= 0 &&
@@ -98,11 +111,19 @@ namespace MPT_UP_02._01_P50_2_18_26
             }
         }
 
+        /// <summary>
+        /// Обработчик выбора элемента из выпадающего списка со складами для загрузки данных из базы данных о товарах на этом складе
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxStorage_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateProductComboBox();
         }
 
+        /// <summary>
+        /// Добавление товаров на выбранном складе в выпадающий список 
+        /// </summary>
         private void UpdateProductComboBox()
         {
             comboBoxProduct.Items.Clear();
@@ -123,6 +144,11 @@ namespace MPT_UP_02._01_P50_2_18_26
             }
         }
 
+        /// <summary>
+        /// Обработчик выбора элемента из выпадающего списка с товарами для загрузки количества товара из базы данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
             _amountOfProductInStorage = Convert.ToInt32(SqlManager.ExecuteCommand(

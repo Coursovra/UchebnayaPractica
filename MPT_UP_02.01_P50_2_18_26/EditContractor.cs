@@ -22,11 +22,21 @@ namespace MPT_UP_02._01_P50_2_18_26
                     [1];
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Назад" для перехода на предыдущую страницу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonBack_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Сохранить изменения" для сохранения изменений в базе данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
             if (Regex.IsMatch(richTextBox1.Text, @"^[a-zA-ZА-Яа-я.0-9]+$") &&

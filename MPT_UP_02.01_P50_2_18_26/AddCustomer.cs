@@ -10,12 +10,22 @@ namespace MPT_UP_02._01_P50_2_18_26
         {
             InitializeComponent();
         }
-
+        
+        /// <summary>
+        /// Обработчик нажатия кнопки "Назад" для перехода на предыдущую страницу 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonBack_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Добавить" для добавления данных о новом покупателе в базу данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             if (Regex.IsMatch(richTextBoxName.Text, "^[A-Za-zА-Яа-я]+$")

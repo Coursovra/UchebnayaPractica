@@ -69,7 +69,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.buttonAdd.BackColor = System.Drawing.Color.White;
             this.buttonAdd.Location = new System.Drawing.Point(31, 56);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(75, 34);
+            this.buttonAdd.Size = new System.Drawing.Size(86, 34);
             this.buttonAdd.TabIndex = 3;
             this.buttonAdd.Text = "Добавить поставщика";
             this.buttonAdd.UseVisualStyleBackColor = false;
@@ -80,7 +80,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.buttonChange.BackColor = System.Drawing.Color.White;
             this.buttonChange.Location = new System.Drawing.Point(159, 56);
             this.buttonChange.Name = "buttonChange";
-            this.buttonChange.Size = new System.Drawing.Size(75, 34);
+            this.buttonChange.Size = new System.Drawing.Size(85, 34);
             this.buttonChange.TabIndex = 4;
             this.buttonChange.Text = "Изменить поставщика";
             this.buttonChange.UseVisualStyleBackColor = false;

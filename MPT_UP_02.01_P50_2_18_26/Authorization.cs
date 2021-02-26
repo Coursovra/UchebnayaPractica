@@ -10,6 +10,11 @@ namespace MPT_UP_02._01_P50_2_18_26
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Авторизоваться" для авторизации и перехода на следующую страницу в соответствии с ролью сотрудника
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonEnter_Click(object sender, EventArgs e)
         {
             var result = SqlManager.ExecuteCommand(
@@ -81,6 +86,16 @@ namespace MPT_UP_02._01_P50_2_18_26
                     break;
                 }
             }
+        }
+
+        /// <summary>
+        /// Обработчик нажатия кнопки "Выход" для выхода из программы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

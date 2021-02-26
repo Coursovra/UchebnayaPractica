@@ -24,11 +24,21 @@ namespace MPT_UP_02._01_P50_2_18_26
             }
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Выйти" для выхода из программы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Применить" для пополнения секции товаром с выбранной торговой точки в базе данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             if (comboBoxStore.SelectedIndex >= 0 && comboBoxProduct.SelectedIndex >= 0 &&
@@ -93,6 +103,11 @@ namespace MPT_UP_02._01_P50_2_18_26
             }
         }
 
+        /// <summary>
+        /// Обработчик выбора элемента из выпадающего списка с торговыми точками для загрузки данных из базы данных о названиях секций на этой точке
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxStore_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateProductComboBox();
@@ -109,6 +124,9 @@ namespace MPT_UP_02._01_P50_2_18_26
             }
         }
 
+        /// <summary>
+        /// Обновление элементов выпадающего списка с товарами
+        /// </summary>
         private void UpdateProductComboBox()
         {
             _storeproducts.Clear();
@@ -125,6 +143,9 @@ namespace MPT_UP_02._01_P50_2_18_26
         }
     }
 
+    /// <summary>
+    /// Класс для товаров на торговой точке
+    /// </summary>
     public class StoreProduct
     {
         public string Id;

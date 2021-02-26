@@ -19,6 +19,9 @@ namespace MPT_UP_02._01_P50_2_18_26
             Setup();
         }
 
+        /// <summary>
+        /// Загрузка данных в выпадающий список и добавление айди в массивы
+        /// </summary>
         private void Setup()
         {
             _budget = Convert.ToInt32(SqlManager.ExecuteCommand("select [value] from Budget")[0]);
@@ -47,11 +50,21 @@ namespace MPT_UP_02._01_P50_2_18_26
             }
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Выйти" для выхода из программы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Заказать" для пополнения товаров на складе и вычитание соответствующей суммы из бюджета в базе данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             if (_toPay > _budget || _toPay == 0)
@@ -89,6 +102,11 @@ namespace MPT_UP_02._01_P50_2_18_26
             SqlManager.ChangeData("Budget", "Value", _budget.ToString(), "id", "0");
         }
 
+        /// <summary>
+        /// Обработчик ввода данных в поле "Количество" для обновления суммы необходимой к оплате
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void richTextBoxAmount_TextChanged(object sender, EventArgs e) // amount entered
         {
             _toPay = _product.ElementAt(comboBoxProduct.SelectedIndex).Value * Convert.ToInt32(richTextBoxAmount.Text);
