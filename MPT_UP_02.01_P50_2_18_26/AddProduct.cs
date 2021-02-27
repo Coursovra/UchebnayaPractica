@@ -72,6 +72,7 @@ namespace MPT_UP_02._01_P50_2_18_26
 
                 if (Convert.ToInt32(richTextBoxAmount.Text) > _amountOfProductInStorage)
                 {
+                    MessageBox.Show("Введеное количество больше количества товара на складе");
                     return;
                 }
 
@@ -108,6 +109,11 @@ namespace MPT_UP_02._01_P50_2_18_26
                         $"and Id_Tovar = {_productId[comboBoxProduct.SelectedIndex]}")[0]);
 
                 UpdateProductComboBox();
+                MessageBox.Show("Продукт добавлен");
+            }
+            else
+            {
+                MessageBox.Show("Ошибка ввода данных");
             }
         }
 

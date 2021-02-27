@@ -23,6 +23,11 @@ namespace MPT_UP_02._01_P50_2_18_26
             {
                 SqlManager.InsertData("Postavchik", new[] {"Imy_postavchika", "Gorod_postavchika"},
                     new[] {richTextBox1.Text, richTextBox2.Text});
+                MessageBox.Show("Поставщик добавлен");
+            }
+            else
+            {
+                MessageBox.Show("Ошибка ввода данных");
             }
         }
 

@@ -55,10 +55,12 @@ namespace MPT_UP_02._01_P50_2_18_26
         {
             if (_toPayEmployee[comboBoxEmployees.SelectedIndex] > _budget)
             {
+                MessageBox.Show("Не хватает денежных средств");
                 return;
             }
 
             Budget -= _toPayEmployee[comboBoxEmployees.SelectedIndex];
+            MessageBox.Show("Зарплата выплачена");
         }
 
         /// <summary>
@@ -66,7 +68,7 @@ namespace MPT_UP_02._01_P50_2_18_26
         /// </summary>
         private void UpdateBudget()
         {
-            labelBudget.Text = "Budget: " + Budget;
+            labelBudget.Text = "Бюджет: " + Budget;
             SqlManager.ChangeData("Budget", "value", Budget.ToString(), "id", "0");
         }
 
@@ -82,6 +84,7 @@ namespace MPT_UP_02._01_P50_2_18_26
                 return;
             }
 
+            MessageBox.Show("Аренда и коммунальные услуги оплачены");
             Budget -= _toPayStore[comboBoxStore.SelectedIndex];
         }
 
@@ -92,7 +95,9 @@ namespace MPT_UP_02._01_P50_2_18_26
         /// <param name="e"></param>
         private void buttonExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Hide();
+            Form1 newForm = new Form1();
+            newForm.Show();
         }
     }
 }

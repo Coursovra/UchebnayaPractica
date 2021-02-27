@@ -57,7 +57,9 @@ namespace MPT_UP_02._01_P50_2_18_26
         /// <param name="e"></param>
         private void buttonExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Hide();
+            Form1 newForm = new Form1();
+            newForm.Show();
         }
 
         /// <summary>
@@ -69,7 +71,7 @@ namespace MPT_UP_02._01_P50_2_18_26
         {
             if (_toPay > _budget || _toPay == 0)
             {
-                return;
+                return; 
             }
 
             _budget -= _toPay;
@@ -99,6 +101,7 @@ namespace MPT_UP_02._01_P50_2_18_26
                     });
             }
 
+            MessageBox.Show("Заказ оформлен успешно");
             SqlManager.ChangeData("Budget", "Value", _budget.ToString(), "id", "0");
         }
 

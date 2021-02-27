@@ -67,6 +67,7 @@ namespace MPT_UP_02._01_P50_2_18_26
                     .ExecuteCommand(
                         $"select * from Sotrudnik where Login = '{richTextBoxLogin.Text}'").Count != 0)
                 {
+                    MessageBox.Show("Пользователь с данным логином уже зарегестрирован");
                     return;
                 }
 
@@ -109,6 +110,12 @@ namespace MPT_UP_02._01_P50_2_18_26
                 SqlManager.InsertData("Ceksiya_torgovoy_tochki_Sotrudnik",
                     new[] {"Id_Ceksii_torgovoy_tochki", "Id_Sotrudnik"},
                     new[] {_storeId[comboBoxStore.SelectedIndex], myId});
+                MessageBox.Show("Продавец добавлен");
+
+            }
+            else
+            {
+                MessageBox.Show("Ошибка ввода данных");
             }
         }
     }

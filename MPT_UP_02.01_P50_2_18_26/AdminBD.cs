@@ -62,7 +62,9 @@ namespace MPT_UP_02._01_P50_2_18_26
         /// <param name="e"></param>
         private void buttonExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Hide();
+            Form1 newForm = new Form1();
+            newForm.Show();
         }
 
         /// <summary>
@@ -76,30 +78,6 @@ namespace MPT_UP_02._01_P50_2_18_26
             DataBind();
             SqlManager.LoadToDGV(dataGridView1, $"select * from {_comboBoxSelectedItem}");
             dataGridView1.Columns[0].Visible = false;
-        }
-
-        /// <summary>
-        /// Обработчик нажатия кнопки "Удалить" для удаления записи из базы данных
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonDelete_Click(object sender, EventArgs e)
-        {
-            var selectedPrimaryKey = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            if (selectedPrimaryKey == null)
-            {
-                return;
-            }
-
-            var primaryKeyColumnName = dataGridView1.Columns[0].Name;
-            _comboBoxValue.TryGetValue(comboBox1.SelectedItem.ToString(), out string _comboBoxSelectedItem);
-            if (_comboBoxSelectedItem == "Sotrudnik")
-            {
-                SqlManager.DeleteData("Ceksiya_torgovoy_tochki_Sotrudnik", "Id_Sotrudnik", selectedPrimaryKey);
-            }
-
-            SqlManager.DeleteData(_comboBoxSelectedItem, primaryKeyColumnName, selectedPrimaryKey);
-            SqlManager.LoadToDGV(dataGridView1, $"select * from {_comboBoxSelectedItem}");
         }
 
         /// <summary>

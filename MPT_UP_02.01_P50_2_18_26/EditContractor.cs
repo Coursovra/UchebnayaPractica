@@ -44,6 +44,13 @@ namespace MPT_UP_02._01_P50_2_18_26
             {
                 SqlManager.ExecuteCommand(
                     $"update [Postavchik] set Imy_postavchika = N'{richTextBox1.Text}', Gorod_postavchika = N'{richTextBox2.Text}' where Kod_postavchika='{_supplierId}'");
+                MessageBox.Show("Изменения сохранены");
+
+            }
+            else
+            {
+                MessageBox.Show("Ошибка ввода данных");
+
             }
         }
     }

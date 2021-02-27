@@ -158,7 +158,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             // 
             // buttonAddSeller
             // 
-            this.buttonAddSeller.Location = new System.Drawing.Point(653, 245);
+            this.buttonAddSeller.Location = new System.Drawing.Point(653, 260);
             this.buttonAddSeller.Name = "buttonAddSeller";
             this.buttonAddSeller.Size = new System.Drawing.Size(125, 20);
             this.buttonAddSeller.TabIndex = 59;
@@ -176,7 +176,7 @@ namespace MPT_UP_02._01_P50_2_18_26
             // 
             // buttonAddCustomer
             // 
-            this.buttonAddCustomer.Location = new System.Drawing.Point(653, 219);
+            this.buttonAddCustomer.Location = new System.Drawing.Point(653, 234);
             this.buttonAddCustomer.Name = "buttonAddCustomer";
             this.buttonAddCustomer.Size = new System.Drawing.Size(135, 20);
             this.buttonAddCustomer.TabIndex = 61;

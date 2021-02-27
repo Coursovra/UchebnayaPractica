@@ -22,6 +22,7 @@ namespace MPT_UP_02._01_P50_2_18_26
 
             if (result.Count == 0)
             {
+                MessageBox.Show("Пользователь не найден");
                 return;
             }
 
@@ -29,6 +30,7 @@ namespace MPT_UP_02._01_P50_2_18_26
 
             if (roleId == null)
             {
+                MessageBox.Show("У данного пользователя нет должности");
                 return;
             }
 
@@ -62,11 +64,16 @@ namespace MPT_UP_02._01_P50_2_18_26
                 {
                     var myId = SqlManager.ExecuteCommand(
                         $" select Kod_sotrudnika from Sotrudnik where [Login] = '{richTextBoxLogin.Text}'")[0];
-                    var sectionId =
+                    var sectionIdResult =
                         SqlManager.ExecuteCommand(
-                                $"select Id_Ceksii_torgovoy_tochki from Ceksiya_torgovoy_tochki_Sotrudnik where Id_Sotrudnik = {myId}")
-                            [0];
-                    Seller newForm = new Seller(myId, sectionId);
+                            $"select Id_Ceksii_torgovoy_tochki from Ceksiya_torgovoy_tochki_Sotrudnik where Id_Sotrudnik = {myId}");
+                            
+                    if (sectionIdResult.Count == 0)
+                    {
+                        MessageBox.Show("Данный пользователь не работает ни на одной точке");
+                        return;
+                    }
+                    Seller newForm = new Seller(myId, sectionIdResult[0]);
                     newForm.Show();
                     Hide();
                     break;

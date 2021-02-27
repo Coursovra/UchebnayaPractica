@@ -39,6 +39,7 @@ namespace MPT_UP_02._01_P50_2_18_26
                     .ExecuteCommand(
                         $"select * from Customer where[PhoneNumber] = {richTextBoxPhoneNumber.Text}").Count != 0)
                 {
+                    MessageBox.Show("Данный пользователь уже существует");
                     return;
                 }
 
@@ -50,6 +51,11 @@ namespace MPT_UP_02._01_P50_2_18_26
                         richTextBoxPhoneNumber.Text, Convert.ToDateTime(dateTimePicker1.Text).ToString("yyyy-MM-dd"),
                         DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")
                     });
+                MessageBox.Show("Покупатель добавлен");
+            }
+            else
+            {
+                MessageBox.Show("Ошибка ввода данных");
             }
         }
     }

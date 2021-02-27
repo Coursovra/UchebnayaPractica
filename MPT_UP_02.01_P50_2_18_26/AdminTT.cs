@@ -39,7 +39,9 @@ namespace MPT_UP_02._01_P50_2_18_26
         /// <param name="e"></param>
         private void buttonExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Hide();
+            Form1 newForm = new Form1();
+            newForm.Show();
         }
 
         /// <summary>

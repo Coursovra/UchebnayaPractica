@@ -35,7 +35,6 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.label1 = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonChange = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -85,18 +84,6 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.buttonChange.Text = "Изменить поставщика";
             this.buttonChange.UseVisualStyleBackColor = false;
             this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.BackColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(270, 76);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(94, 23);
-            this.buttonDelete.TabIndex = 5;
-            this.buttonDelete.Text = "Удалить";
-            this.buttonDelete.UseVisualStyleBackColor = false;
-            this.buttonDelete.Visible = false;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonExit
             // 
@@ -163,7 +150,6 @@ namespace MPT_UP_02._01_P50_2_18_26
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonExit);
-            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonChange);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.groupBox1);
@@ -187,8 +173,6 @@ namespace MPT_UP_02._01_P50_2_18_26
         private System.Windows.Forms.Label label2;
 
         private System.Windows.Forms.Button buttonExit;
-
-        private System.Windows.Forms.Button buttonDelete;
 
         private System.Windows.Forms.Button buttonChange;
 
